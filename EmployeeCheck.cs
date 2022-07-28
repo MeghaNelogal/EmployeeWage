@@ -18,6 +18,7 @@ namespace EmployeeWage
         {
             //Constant
             int IS_FULL_TIME = 1;
+            int IS_PART_TIME = 2;
             int EMP_RATE_PER_HOUR = 20;
 
             //Variables
@@ -26,12 +27,17 @@ namespace EmployeeWage
 
             Random random = new Random();
 
-            int empCheck  = random.Next(2);
+            int empCheck  = random.Next(3);
 
             if(empCheck== IS_FULL_TIME)
             {
                 Console.WriteLine("Employee is Present");
                 empHrs = 8;
+            }
+            else if(empCheck==IS_PART_TIME)
+            {
+                Console.WriteLine("Employee is Part Time");
+                empHrs = 4;
             }
             else
             {
