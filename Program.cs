@@ -7,7 +7,6 @@ namespace Employeewage
         public static void Main(string[] args)
         {
             Console.WriteLine("Welome To Employee Wage Program");
-
             EmployeeCheck.CheckEmployeeAttendance();
         }
     }
