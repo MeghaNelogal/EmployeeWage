@@ -11,56 +11,46 @@ namespace EmployeeWage
     /// </summary>
     public static class EmployeeCheck
     {
+        //Constant
+        public const int IS_FULL_TIME = 1;
+        public const int IS_PART_TIME = 2;
+        public const int EMP_RATE_PER_HOUR = 20;
+        public const int NUM_OF_WORKING_DAYS = 20;
+
         /// <summary>
         /// Checks the employee attendance.
         /// </summary>
-       public static void CheckEmployeeAttendance()
-        {
-            //Constant
-            int IS_FULL_TIME = 1;
-            int IS_PART_TIME = 2;
-            int EMP_RATE_PER_HOUR = 20;
-
+        public static void CheckEmployeeAttendance()
+        {         
             //Variables
             int empHrs = 0;
             int empWage = 0;
+            int totalEmpWage = 0;
 
-            Random random = new Random();
-
-            int empCheck  = random.Next(3);
-
-            //if(empCheck== IS_FULL_TIME)
-            //{
-            //    Console.WriteLine("Employee is Present");
-            //    empHrs = 8;
-            //}
-            //else if(empCheck==IS_PART_TIME)
-            //{
-            //    Console.WriteLine("Employee is Part Time");
-            //    empHrs = 4;
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Employee is Absent");
-            //    empHrs = 0;
-            //}
-            switch(empCheck)
+            for(int day=0;day<NUM_OF_WORKING_DAYS;day++)
             {
-                case 1:
-                    Console.WriteLine("IS_FULL_TIME is ->");
-                    empHrs = 8;
-                    break;
-                    case 2:
-                    Console.WriteLine("IS_PART_TIME is ->");
-                    empHrs = 4;
-                    break;
-                default:
-                    empHrs = 0;
-                    break;
-            }
-            empWage = empHrs * EMP_RATE_PER_HOUR;
-            Console.WriteLine("Emp Wage : " + empWage);
-       }
+               Random random = new Random();
 
+               int empCheck  = random.Next(3);
+
+                switch (empCheck)
+                {
+                    case IS_PART_TIME:
+                        empHrs = 4;
+                        break;
+                    case IS_FULL_TIME:
+                        empHrs = 8;
+                        break;
+                    default:
+                        empHrs = 0;
+                        break;
+                }
+                empWage = empHrs * EMP_RATE_PER_HOUR;
+                totalEmpWage += empWage;
+                Console.WriteLine("Emp Wage : " + empWage);
+            }
+            Console.WriteLine("total Emp Wage  : " + totalEmpWage);
+        }
+            
     }
 }
